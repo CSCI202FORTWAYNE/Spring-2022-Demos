@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <regex>
 
@@ -8,7 +9,7 @@ using namespace std;
 
 int main()
 {
-    //yyyy-mm-dd
+    /*//yyyy-mm-dd
     //regex r{"(\\d{4})-(0?[1-9]|1[0-2])-(0?[1-9]|[1-2][0-9]|3[0-1])"};
     regex r {"(\\d{4})-(?:(?:(0?2)-(0?[1-9]|[1-2][0-9]))|(?:(0?[13578]|1[02])-(0?[1-9]|[1-2][0-9]|3[0-1]))|(?:(0?[469]|11)-(0?[1-9]|[1-2][0-9]|30)))"};
     while(true) 
@@ -38,6 +39,21 @@ int main()
             cout << "Invalid date!" << endl;
         }
     }
-
+*/
+    regex r{"//\\s*(.+)$"};
+    ifstream in("main.cpp");
+    while(!in.eof())
+    {
+        string str;
+        if(!getline(in, str))
+        {
+            break;
+        }
+        smatch m;
+        if(regex_search(str, m, r))
+        {
+            cout << "Found comment '" << m[1].str() << "'" << endl;
+        }
+    }
     return 0;
 }
