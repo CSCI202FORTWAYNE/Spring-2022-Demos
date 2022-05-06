@@ -1,0 +1,5 @@
+make all --dry-run --keep-going --print-directory
+make: Entering directory '/mnt/c/Users/Angela/Documents/GitHub/Spring-2022-Demos/5_5_22'
+g++ -pedantic-errors -g main.cpp
+make: Leaving directory '/mnt/c/Users/Angela/Documents/GitHub/Spring-2022-Demos/5_5_22'
+ 
